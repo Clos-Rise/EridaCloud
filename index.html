@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клон GitHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #6a11cb, #2575fc, #21d4fd, #b721ff);
+            background-size: 400% 400%;
+            animation: Gradient 15s ease infinite;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        @keyframes Gradient {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 700;
+            animation: fadeIn 2s ease-in-out;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.5em;
+            font-weight: 300;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+        .buttons {
+            margin-top: 30px;
+        }
+        .buttons a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        .buttons a:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        footer p {
+            margin: 0;
+            font-size: 1em;
+            font-weight: 300;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .feature:hover {
+            transform: scale(1.05);
+        }
+        .feature h2 {
+            font-size: 1.5em;
+            font-weight: 500;
+            margin: 0 0 10px;
+        }
+        .feature p {
+            font-size: 1em;
+            font-weight: 300;
+            margin: 0;
+        }
+        .feature i {
+            font-size: 3em;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .social-icons {
+            margin-top: 30px;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 2em;
+            color: #ffffff;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #2575fc;
+            transform: scale(1.2);
+        }
+        .additional-content {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .additional-content p {
+            font-size: 1.2em;
+            font-weight: 300;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать на EridaCloud</h1>
+        <p>Лучшее место для работы над кодом</p>
+    </header>
+    <div class="container">
+        <div class="buttons">
+            <a href="{{ url_for('penis') }}">Зарегистрироваться</a>
+            <a href="{{ url_for('dota_orgazm') }}">Войти</a>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-code-branch"></i>
+                <h2>Контроль версий</h2>
+                <p>Управляйте кодом с помощью какой-то хуйни.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users"></i>
+                <h2>Совместная работа</h2>
+                <p>Работайте вместе с командой, добавляйте совладельцев и пишите код вместе!</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-plug"></i>
+                <h2>Интеграции</h2>
+                <p>Интегрируйте свои любимые инструменты и сервисы.</p>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="https://github.com/Clos-Rise/EridaCloud" class="fab fa-github"></a>
+            <a href="https://discord.gg/Dude8G22gq" class="fab fa-discord"></a>
+        </div>
+        <div class="additional-content">
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 EridAI.</p>
+    </footer>
+</body>
+</html>
