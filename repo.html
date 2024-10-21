@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erida Sus</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #00796B, #004D40, #004D40, #00796B, #004D40, #00796B, #004D40, #00796B, #004D40);
+            background-size: 800% 800%;
+            animation: Gradient 15s ease infinite;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        @keyframes Gradient {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 700;
+            animation: fadeIn 2s ease-in-out;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.5em;
+            font-weight: 300;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+        .buttons {
+            margin-top: 30px;
+        }
+        .buttons a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        .buttons a:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        footer p {
+            margin: 0;
+            font-size: 1em;
+            font-weight: 300;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .repo-list {
+            margin-bottom: 20px;
+            width: 80%;
+        }
+        .repo-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .repo-item h2 {
+            margin: 0;
+        }
+        .repo-item button {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .repo-item button:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .file-list {
+            margin-top: 20px;
+            width: 80%;
+        }
+        .file-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .file-item button {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .file-item button:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .add-repo, .add-file {
+            margin-top: 20px;
+            width: 80%;
+        }
+        .add-repo input, .add-file input {
+            padding: 5px;
+            margin-right: 10px;
+            border-radius: 3px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            backdrop-filter: blur(10px);
+            width: calc(100% - 120px);
+        }
+        .add-repo button, .add-file button {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .add-repo button:hover, .add-file button:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .close {
+            color: #fff;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EridaCloud</h1>
+        <p>Repository maker nahuy</p>
+    </header>
+    <div class="container">
+        <section class="repo-list">
+            <h2>Repa sex</h2>
+            <div class="repo-item">
+                <h2>Repo sus</h2>
+                <button onclick="viewRepo('Repo 1')">Просмтр</button>
+            </div>
+            <div class="repo-item">
+                <h2>Repo sas</h2>
+                <button onclick="viewRepo('Repo 2')">Просмотр</button>
+            </div>
+        </section>
+
+        <section class="add-repo">
+            <h2>Добавить репозиторий</h2>
+            <input type="text" id="repo-name" placeholder="repository sus">
+            <button onclick="addRepo()">Добавить</button>
+        </section>
+
+        <section class="file-list" id="file-list" style="display: none;">
+            <h2>Файлы</h2>
+            <div class="file-item">
+                <span>File sus</span>
+                <button onclick="deleteFile('File 1')">Удалить</button>
+            </div>
+            <div class="file-item">
+                <span>File sas</span>
+                <button onclick="deleteFile('File 2')">Удалить</button>
+            </div>
+        </section>
+
+        <section class="add-file" id="add-file" style="display: none;">
+            <h2>Добавить файл</h2>
+            <input type="text" id="file-name" placeholder="Название файла">
+            <button onclick="addFile()">Добавить</button>
+        </section>
+    </div>
+
+    <div id="repoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-repo-name"></h2>
+            <div id="modal-file-list">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 EridAI.</p>
+    </footer>
+
+    <script>
+        let repositories = {
+            'Repo 1': ['File 1', 'File 2'],
+            'Repo 2': ['File 1', 'File 2']
+        };
+
+        function viewRepo(repoName) {
+            document.getElementById('modal-repo-name').innerText = repoName;
+            const fileList = document.getElementById('modal-file-list');
+            fileList.innerHTML = '';
+            repositories[repoName].forEach(fileName => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                    <span>${fileName}</span>
+                    <button onclick="deleteFile('${fileName}', '${repoName}')">Delete</button>
+                `;
+                fileList.appendChild(fileItem);
+            });
+            document.getElementById('repoModal').style.display = 'block';
+        }
+
+        function addRepo() {
+            const repoName = document.getElementById('repo-name').value;
+            if (repoName) {
+                repositories[repoName] = [];
+                const repoList = document.querySelector('.repo-list');
+                const newRepo = document.createElement('div');
+                newRepo.className = 'repo-item';
+                newRepo.innerHTML = `
+                    <h2>${repoName}</h2>
+                    <button onclick="viewRepo('${repoName}')">Просмотр</button>
+                `;
+                repoList.appendChild(newRepo);
+                document.getElementById('repo-name').value = '';
+            }
+        }
+
+        function addFile() {
+            const repoName = document.getElementById('modal-repo-name').innerText;
+            const fileName = document.getElementById('file-name').value;
+            if (fileName) {
+                repositories[repoName].push(fileName);
+                const fileList = document.getElementById('modal-file-list');
+                const newFile = document.createElement('div');
+                newFile.className = 'file-item';
+                newFile.innerHTML = `
+                    <span>${fileName}</span>
+                    <button onclick="deleteFile('${fileName}', '${repoName}')">Delete</button>
+                `;
+                fileList.appendChild(newFile);
+                document.getElementById('file-name').value = '';
+            }
+        }
+
+        function deleteFile(fileName, repoName) {
+            repositories[repoName] = repositories[repoName].filter(file => file !== fileName);
+            const fileItems = document.querySelectorAll('.file-item');
+            fileItems.forEach(item => {
+                if (item.querySelector('span').textContent === fileName) {
+                    item.remove();
+                }
+            });
+        }
+
+        function closeModal() {
+            document.getElementById('repoModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
